@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Button } from "@tin4/ui";
 
 export default function Home() {
   return (
@@ -25,6 +26,9 @@ export default function Home() {
             <pre className="mt-3 overflow-x-auto rounded-xl bg-background p-4 text-sm leading-6">
               <code>{`bun run dev --filter=@tin4/nextjs`}</code>
             </pre>
+            <div className="mt-4">
+              <Button>shadcn/ui button</Button>
+            </div>
           </section>
         </div>
       </div>

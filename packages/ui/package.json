@@ -1,9 +1,32 @@
 {
   "name": "@tin4/ui",
   "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./components/button": "./src/components/button.tsx",
+    "./lib/utils": "./src/lib/utils.ts",
+    "./styles/globals.css": "./src/styles/globals.css"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0"
+  },
+  "dependencies": {
+    "@tin4/tailwind-config": "workspace:*",
+    "@tin4/tsconfig": "workspace:*",
+    "@radix-ui/react-slot": "^1.2.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwindcss": "^4",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "typescript": "^5"
+  },
   "scripts": {
-    "build": "mkdir -p dist && cp src/index.ts dist/index.ts",
+    "build": "mkdir -p dist && cp -R src/. dist/",
     "lint": "echo 'No lint configured for @tin4/ui yet'",
-    "typecheck": "echo 'No typecheck configured for @tin4/ui yet'"
+    "typecheck": "tsc --noEmit"
   }
 }
