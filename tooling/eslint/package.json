@@ -1,6 +1,14 @@
 {
   "name": "@tin4/eslint-config",
   "private": true,
+  "type": "module",
+  "exports": {
+    "./nextjs": "./nextjs.js"
+  },
+  "dependencies": {
+    "eslint": "^9.39.4",
+    "eslint-config-next": "16.2.2"
+  },
   "scripts": {
     "lint": "echo 'Tooling package @tin4/eslint-config is a config holder'",
     "typecheck": "echo 'No typecheck configured for @tin4/eslint-config yet'"

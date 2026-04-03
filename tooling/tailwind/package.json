@@ -1,6 +1,15 @@
 {
   "name": "@tin4/tailwind-config",
   "private": true,
+  "type": "module",
+  "exports": {
+    "./theme.css": "./theme.css",
+    "./postcss-config": "./postcss-config.js"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4"
+  },
   "scripts": {
     "lint": "echo 'Tooling package @tin4/tailwind-config is a config holder'",
     "typecheck": "echo 'No typecheck configured for @tin4/tailwind-config yet'"

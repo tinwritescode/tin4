@@ -1,10 +1,30 @@
 {
   "name": "@tin4/nextjs",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "mkdir -p dist && cp src/index.ts dist/index.ts",
-    "dev": "bun --watch src/index.ts",
-    "lint": "echo 'No lint configured for @tin4/nextjs yet'",
-    "typecheck": "echo 'No typecheck configured for @tin4/nextjs yet'"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.2.2",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tin4/eslint-config": "workspace:*",
+    "@tin4/tailwind-config": "workspace:*",
+    "@tin4/tsconfig": "workspace:*",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.2",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
