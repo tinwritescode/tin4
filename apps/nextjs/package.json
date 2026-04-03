@@ -1,0 +1,10 @@
+{
+  "name": "@tin4/nextjs",
+  "private": true,
+  "scripts": {
+    "build": "mkdir -p dist && cp src/index.ts dist/index.ts",
+    "dev": "bun --watch src/index.ts",
+    "lint": "echo 'No lint configured for @tin4/nextjs yet'",
+    "typecheck": "echo 'No typecheck configured for @tin4/nextjs yet'"
+  }
+}

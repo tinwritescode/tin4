@@ -1,9 +1,0 @@
-{
-  "name": "web",
-  "private": true,
-  "scripts": {
-    "build": "mkdir -p dist && cp src/index.js dist/index.js",
-    "dev": "bun --watch src/index.js",
-    "lint": "echo 'No lint configured for web yet'"
-  }
-}

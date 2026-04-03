@@ -1,0 +1,9 @@
+{
+  "name": "@tin4/api",
+  "private": true,
+  "scripts": {
+    "build": "mkdir -p dist && cp src/index.ts dist/index.ts",
+    "lint": "echo 'No lint configured for @tin4/api yet'",
+    "typecheck": "echo 'No typecheck configured for @tin4/api yet'"
+  }
+}

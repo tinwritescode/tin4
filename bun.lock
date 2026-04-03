@@ -8,11 +8,73 @@
         "turbo": "^2.9.3",
       },
     },
-    "apps/web": {
-      "name": "web",
+    "apps/expo": {
+      "name": "@tin4/expo",
+    },
+    "apps/nextjs": {
+      "name": "@tin4/nextjs",
+    },
+    "apps/tanstack-start": {
+      "name": "@tin4/tanstack-start",
+    },
+    "packages/api": {
+      "name": "@tin4/api",
+    },
+    "packages/auth": {
+      "name": "@tin4/auth",
+    },
+    "packages/db": {
+      "name": "@tin4/db",
+    },
+    "packages/ui": {
+      "name": "@tin4/ui",
+    },
+    "packages/validators": {
+      "name": "@tin4/validators",
+    },
+    "tooling/eslint": {
+      "name": "@tin4/eslint-config",
+    },
+    "tooling/github": {
+      "name": "@tin4/github-config",
+    },
+    "tooling/prettier": {
+      "name": "@tin4/prettier-config",
+    },
+    "tooling/tailwind": {
+      "name": "@tin4/tailwind-config",
+    },
+    "tooling/typescript": {
+      "name": "@tin4/typescript-config",
     },
   },
   "packages": {
+    "@tin4/api": ["@tin4/api@workspace:packages/api"],
+
+    "@tin4/auth": ["@tin4/auth@workspace:packages/auth"],
+
+    "@tin4/db": ["@tin4/db@workspace:packages/db"],
+
+    "@tin4/eslint-config": ["@tin4/eslint-config@workspace:tooling/eslint"],
+
+    "@tin4/expo": ["@tin4/expo@workspace:apps/expo"],
+
+    "@tin4/github-config": ["@tin4/github-config@workspace:tooling/github"],
+
+    "@tin4/nextjs": ["@tin4/nextjs@workspace:apps/nextjs"],
+
+    "@tin4/prettier-config": ["@tin4/prettier-config@workspace:tooling/prettier"],
+
+    "@tin4/tailwind-config": ["@tin4/tailwind-config@workspace:tooling/tailwind"],
+
+    "@tin4/tanstack-start": ["@tin4/tanstack-start@workspace:apps/tanstack-start"],
+
+    "@tin4/typescript-config": ["@tin4/typescript-config@workspace:tooling/typescript"],
+
+    "@tin4/ui": ["@tin4/ui@workspace:packages/ui"],
+
+    "@tin4/validators": ["@tin4/validators@workspace:packages/validators"],
+
     "@turbo/darwin-64": ["@turbo/darwin-64@2.9.3", "", { "os": "darwin", "cpu": "x64" }, "sha512-P8foouaP+y/p+hhEGBoZpzMbpVvUMwPjDpcy6wN7EYfvvyISD1USuV27qWkczecihwuPJzQ1lDBuL8ERcavTyg=="],
 
     "@turbo/darwin-arm64": ["@turbo/darwin-arm64@2.9.3", "", { "os": "darwin", "cpu": "arm64" }, "sha512-SIzEkvtNdzdI50FJDaIQ6kQGqgSSdFPcdn0wqmmONN6iGKjy6hsT+EH99GP65FsfV7DLZTh2NmtTIRl2kdoz5Q=="],
@@ -26,7 +88,5 @@
     "@turbo/windows-arm64": ["@turbo/windows-arm64@2.9.3", "", { "os": "win32", "cpu": "arm64" }, "sha512-/08CwpKJl3oRY8nOlh2YgilZVJDHsr60XTNxRhuDeuFXONpUZ5X+Nv65izbG/xBew9qxcJFbDX9/sAmAX+ITcQ=="],
 
     "turbo": ["turbo@2.9.3", "", { "optionalDependencies": { "@turbo/darwin-64": "2.9.3", "@turbo/darwin-arm64": "2.9.3", "@turbo/linux-64": "2.9.3", "@turbo/linux-arm64": "2.9.3", "@turbo/windows-64": "2.9.3", "@turbo/windows-arm64": "2.9.3" }, "bin": { "turbo": "bin/turbo" } }, "sha512-J/VUvsGRykPb9R8Kh8dHVBOqioDexLk9BhLCU/ZybRR+HN9UR3cURdazFvNgMDt9zPP8TF6K73Z+tplfmi0PqQ=="],
-
-    "web": ["web@workspace:apps/web"],
   }
 }

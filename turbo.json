@@ -15,6 +15,12 @@
     },
     "lint": {
       "outputs": []
+    },
+    "typecheck": {
+      "dependsOn": [
+        "^typecheck"
+      ],
+      "outputs": []
     }
   }
 }

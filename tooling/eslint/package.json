@@ -1,0 +1,8 @@
+{
+  "name": "@tin4/eslint-config",
+  "private": true,
+  "scripts": {
+    "lint": "echo 'Tooling package @tin4/eslint-config is a config holder'",
+    "typecheck": "echo 'No typecheck configured for @tin4/eslint-config yet'"
+  }
+}

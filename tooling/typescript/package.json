@@ -1,0 +1,8 @@
+{
+  "name": "@tin4/typescript-config",
+  "private": true,
+  "scripts": {
+    "lint": "echo 'Tooling package @tin4/typescript-config is a config holder'",
+    "typecheck": "echo 'Tooling package @tin4/typescript-config is a config holder'"
+  }
+}
