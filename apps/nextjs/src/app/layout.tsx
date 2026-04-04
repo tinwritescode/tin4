@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { JetBrains_Mono } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import { cn } from "@tin4/ui/lib/utils";
 
-const jetbrainsMono = JetBrains_Mono({subsets:['latin'],variable:'--font-mono'});
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-heading",
+});
 
 export const metadata: Metadata = {
   title: "tin4",
-  description: "Next.js 16 app in the tin4 Turborepo",
+  description: "One-screen soft editorial landing page for the tin4 workspace.",
 };
 
 export default function RootLayout({
@@ -16,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("h-full antialiased", "font-mono", jetbrainsMono.variable)}>
+    <html lang="en" className={cn("h-full antialiased", inter.variable, playfair.variable)}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
