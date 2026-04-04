@@ -1,14 +1,18 @@
-import { HeroPanel, LandingShell, TopNav } from "@tin4/ui";
+import { HeroPanel, LandingShell } from "@tin4/ui";
+
+import { TopNavAuth } from "@/components/auth/top-nav-auth";
 
 export default function Home() {
   const links = [
+    { label: "Ant", href: "/ant" },
     { label: "Contact", href: "#contact" },
   ];
 
   return (
     <LandingShell>
-      <TopNav
+      <TopNavAuth
         brand="tin4"
+        brandHref="/"
         links={links}
         ctaHref="#contact"
         ctaLabel="Contact"

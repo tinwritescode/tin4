@@ -1,0 +1,118 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum ActivityType {
+  FEED
+  WATER
+  NOTE
+}
+
+enum FoodType {
+  SUPERWORM
+  DUBIA
+  RED_RUNNER
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  locale    String   @default("en")
+  colonies  Colony[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Colony {
+  id             String       @id @default(cuid())
+  userId         String
+  name           String
+  species        String?
+  queenCount     Int?
+  workerEstimate Int?
+  setupDate      DateTime?
+  coverImageUrl  String?
+  notes          String?
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  diaryEntries   DiaryEntry[]
+  activities     Activity[]
+  media          Media[]
+  reminders      Reminder[]
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@index([userId])
+}
+
+model DiaryEntry {
+  id         String    @id @default(cuid())
+  colonyId   String
+  title      String?
+  content    String?
+  entryAt    DateTime  @default(now())
+  activityId String?   @unique
+  colony     Colony    @relation(fields: [colonyId], references: [id], onDelete: Cascade)
+  activity   Activity? @relation(fields: [activityId], references: [id], onDelete: SetNull)
+  media      Media[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  @@index([colonyId, entryAt])
+}
+
+model Activity {
+  id          String       @id @default(cuid())
+  colonyId    String
+  type        ActivityType
+  foodType    FoodType?
+  quantity    String?
+  waterAmount String?
+  note        String?
+  activityAt  DateTime     @default(now())
+  colony      Colony       @relation(fields: [colonyId], references: [id], onDelete: Cascade)
+  diaryEntry  DiaryEntry?
+  media       Media[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@index([colonyId, activityAt])
+  @@index([colonyId, type, activityAt])
+}
+
+model Media {
+  id           String     @id @default(cuid())
+  colonyId     String
+  diaryEntryId String?
+  activityId   String?
+  url          String
+  caption      String?
+  colony       Colony     @relation(fields: [colonyId], references: [id], onDelete: Cascade)
+  diaryEntry   DiaryEntry? @relation(fields: [diaryEntryId], references: [id], onDelete: SetNull)
+  activity     Activity?  @relation(fields: [activityId], references: [id], onDelete: SetNull)
+  createdAt    DateTime   @default(now())
+
+  @@index([colonyId, createdAt])
+  @@index([diaryEntryId])
+  @@index([activityId])
+}
+
+model Reminder {
+  id              String   @id @default(cuid())
+  colonyId        String
+  type            String
+  enabled         Boolean  @default(true)
+  intervalHours   Int
+  nextReminderAt  DateTime?
+  lastTriggeredAt DateTime?
+  colony          Colony   @relation(fields: [colonyId], references: [id], onDelete: Cascade)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([colonyId, type])
+}

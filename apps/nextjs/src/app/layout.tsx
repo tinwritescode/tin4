@@ -3,6 +3,8 @@ import "./globals.css";
 import { Inter, Playfair_Display } from "next/font/google";
 import { cn } from "@tin4/ui/lib/utils";
 
+import { TRPCReactProvider } from "@/trpc/client";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -25,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn("h-full antialiased", inter.variable, playfair.variable)}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <TRPCReactProvider>{children}</TRPCReactProvider>
+      </body>
     </html>
   );
 }

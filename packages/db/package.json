@@ -1,9 +1,21 @@
 {
   "name": "@tin4/db",
   "private": true,
+  "type": "module",
   "scripts": {
+    "db:generate": "prisma generate",
+    "db:migrate:dev": "prisma migrate dev",
     "build": "mkdir -p dist && cp src/index.ts dist/index.ts",
     "lint": "echo 'No lint configured for @tin4/db yet'",
     "typecheck": "echo 'No typecheck configured for @tin4/db yet'"
+  },
+  "devDependencies": {
+    "dotenv": "^17.4.0",
+    "prisma": "^7.6.0"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.6.0",
+    "@prisma/client": "^7.6.0",
+    "pg": "^8.20.0"
   }
 }

@@ -4,3 +4,5 @@ dist
 .next
 out
 .cache
+.env
+.env.*

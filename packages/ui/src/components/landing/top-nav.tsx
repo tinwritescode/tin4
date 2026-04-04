@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { buttonVariants } from "../button";
@@ -57,15 +59,19 @@ const linkVariants = cva(
 
 type TopNavProps = {
   brand: string;
-  ctaHref: string;
-  ctaLabel: string;
+  brandHref?: string;
+  ctaHref?: string;
+  ctaLabel?: string;
+  endContent?: ReactNode;
   links: NavLink[];
 } & VariantProps<typeof topNavVariants>;
 
 export function TopNav({
   brand,
+  brandHref = "#top",
   ctaHref,
   ctaLabel,
+  endContent,
   links,
   variant = "editorial",
 }: TopNavProps) {
@@ -78,7 +84,7 @@ export function TopNav({
         )}
       >
         <a
-          href="#top"
+          href={brandHref}
           className={cn(brandVariants({ variant }))}
         >
           {brand}
@@ -94,18 +100,24 @@ export function TopNav({
             </a>
           ))}
         </nav>
-        <a
-          href={ctaHref}
-          className={cn(
-            buttonVariants({ size: "default" }),
-            "h-auto cursor-pointer rounded-full px-4 py-2 text-xs font-medium tracking-[0.14em] uppercase",
-            variant === "editorial"
-              ? "border-[#98a790] bg-[#98a790] text-white hover:bg-[#86947f] focus-visible:ring-[#98a790]"
-              : "border-stone-900 bg-stone-900 text-[#fffaf0] hover:bg-[#6f7d68] focus-visible:ring-stone-500",
-          )}
-        >
-          {ctaLabel}
-        </a>
+        {endContent ?? (
+          ctaHref && ctaLabel ? (
+            <a
+              href={ctaHref}
+              className={cn(
+                buttonVariants({ size: "default" }),
+                "h-auto cursor-pointer rounded-full px-4 py-2 text-xs font-medium tracking-[0.14em] uppercase",
+                variant === "editorial"
+                  ? "border-[#98a790] bg-[#98a790] text-white hover:bg-[#86947f] focus-visible:ring-[#98a790]"
+                  : "border-stone-900 bg-stone-900 text-[#fffaf0] hover:bg-[#6f7d68] focus-visible:ring-stone-500",
+              )}
+            >
+              {ctaLabel}
+            </a>
+          ) : (
+            <div className="w-[92px]" aria-hidden="true" />
+          )
+        )}
       </div>
     </header>
   );
