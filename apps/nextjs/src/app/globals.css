@@ -1,4 +1,4 @@
-@import "../../../../packages/ui/src/styles/globals.css";
+@import "@tin4/ui/styles/globals.css";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
